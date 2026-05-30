@@ -1,0 +1,25 @@
+<launch>
+  <arg name="path_index" default="0" />
+  <arg name="dt" default="0.05" />
+  <arg name="open_paths_file" default="/home/ljh/ur5_coppelia_ws/src/UR5-Path-Planning-and-Grasping-using-Coppeliasim-/open_paths.json" />
+  <arg name="close_paths_file" default="/home/ljh/ur5_coppelia_ws/src/UR5-Path-Planning-and-Grasping-using-Coppeliasim-/close_paths.json" />
+  <arg name="gripper_signal_name" default="RG2_open" />
+  <arg name="gripper_signal_type" default="int32" />
+  <arg name="mode" default="instant" />
+  <arg name="script_object_path" default="/UR5" />
+
+  <node pkg="ur5_ros_bridge" type="ur5_coppelia_bridge.py" name="ur5_coppelia_bridge" output="screen">
+    <param name="dt" value="$(arg dt)" />
+    <param name="mode" value="$(arg mode)" />
+    <param name="gripper_signal_name" value="$(arg gripper_signal_name)" />
+    <param name="gripper_signal_type" value="$(arg gripper_signal_type)" />
+    <param name="script_object_path" value="$(arg script_object_path)" />
+  </node>
+
+  <node pkg="ur5_ros_bridge" type="ur5_sequence_controller.py" name="ur5_sequence_controller" output="screen">
+    <param name="path_index" value="$(arg path_index)" />
+    <param name="dt" value="$(arg dt)" />
+    <param name="open_paths_file" value="$(arg open_paths_file)" />
+    <param name="close_paths_file" value="$(arg close_paths_file)" />
+  </node>
+</launch>

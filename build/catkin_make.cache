@@ -1,0 +1,2 @@
+ur5_ros_bridge
+-DCATKIN_WHITELIST_PACKAGES=ur5_ros_bridge -DCATKIN_DEVEL_PREFIX=/home/ljh/ur5_coppelia_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ljh/ur5_coppelia_ws/install -G Unix Makefiles

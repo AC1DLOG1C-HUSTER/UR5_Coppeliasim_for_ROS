@@ -1,0 +1,8 @@
+prefix=/home/ljh/ur5_coppelia_ws/devel
+
+Name: ur5_ros_bridge
+Description: Description of ur5_ros_bridge
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
